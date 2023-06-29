@@ -1,17 +1,10 @@
-// var title = document.getElementById("header-title");
-// var title2 = document.getElementById("title");
+var createnew = document.getElementsByClassName("created-list");
+var create_new = document.getElementsByTagName("li");
+
+createnew[0].style.fontWeight = "bold"
+createnew[0].style.color = "blue"
+
+createnew[0].style.color = "red"
+createnew[0].style.fontWeight = "bold"
 
 
-// title.style.borderBottom = "solid 6px black"; 
-// title2.style.fontWeight = "bold";
-// title2.style.color = "green";
-
-
-var lis = document.getElementsByClassName("list-group-item")
-console.log(lis)
-
-lis[2].style.color = "red"
-
-for(var i=0;i<lis.length;i++){
-    lis[i].style.fontWeight = "bold"
-}
