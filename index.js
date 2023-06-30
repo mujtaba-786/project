@@ -1,10 +1,15 @@
-var createnew = document.getElementsByClassName("created-list");
-var create_new = document.getElementsByTagName("li");
+var item = document.querySelector(".list-group-item:nth-child(2)")
+item.style.color = "green"
 
-createnew[0].style.fontWeight = "bold"
-createnew[0].style.color = "blue"
+var item = document.querySelector(".list-group-item:nth-child(3)")
+item.style.display = "none"
 
-createnew[0].style.color = "red"
-createnew[0].style.fontWeight = "bold"
+var item = document.querySelectorAll(".list-group-item")
+item[1].style.color = "green"
 
+for(var i=0;i<item.length;i++){
+    if(i%2==1){
+        item[i].style.backgroundColor = "green"
+    }
+}
 
