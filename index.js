@@ -1,15 +1,64 @@
-var item = document.querySelector(".list-group-item:nth-child(2)")
-item.style.color = "green"
+var item = document.querySelector("#items")
 
-var item = document.querySelector(".list-group-item:nth-child(3)")
-item.style.display = "none"
+console.log(item.parentNode)
+item.parentNode.style.backgroundColor = "blue"
 
-var item = document.querySelectorAll(".list-group-item")
-item[1].style.color = "green"
+console.log(item.parentElement)
+item.parentElement.style.backgroundColor = "yellow"
 
-for(var i=0;i<item.length;i++){
-    if(i%2==1){
-        item[i].style.backgroundColor = "green"
-    }
-}
+console.log(item.childNodes)
+
+console.log(item.children)
+item.children[1].style.backgroundColor = "red"
+
+console.log(item.firstChild)
+item.firstChild.style.backgroundColor = "red"
+
+console.log(item.firstElementChild)
+item.firstElementChild.style.backgroundColor = "blue"
+item.firstElementChild.textContent = "Hello 1"
+
+console.log(item.lastElementChild)
+item.lastElementChild.textContent = "Hello 2"
+
+console.log(item.lastChild)
+
+console.log(item.nextSibling)
+console.log(item.nextElementSibling)
+
+
+
+
+
+var newDiv = document.createElement("div")
+newDiv.className = "hello"
+newDiv.id = "hello2"
+newDiv.setAttribute("title", "Hello Div")
+var newDivText = document.createTextNode("Hello World")
+newDiv.appendChild(newDivText)
+
+var container = document.querySelector(".list-group")
+var h1 = document.querySelector(".list-group-item")
+console.log(newDiv)
+newDiv.style.fontSize = "30px"
+container.insertBefore(newDiv, h1)
+
+
+var newDiv = document.createElement("div")
+newDiv.className = "hello"
+newDiv.id = "hello2"
+newDiv.setAttribute("title", "Hello Div")
+var newDivText = document.createTextNode("Hello World")
+newDiv.appendChild(newDivText)
+
+var container = document.querySelector(".container")
+var h1 = document.querySelector(".titlee")
+console.log(newDiv)
+newDiv.style.fontSize = "30px"
+container.insertBefore(newDiv, h1)
+
+
+
+
+
 
