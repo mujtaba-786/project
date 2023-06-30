@@ -1,64 +1,53 @@
-var item = document.querySelector("#items")
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
+var filter = document.getElementById('filter');
 
-console.log(item.parentNode)
-item.parentNode.style.backgroundColor = "blue"
 
-console.log(item.parentElement)
-item.parentElement.style.backgroundColor = "yellow"
-
-console.log(item.childNodes)
-
-console.log(item.children)
-item.children[1].style.backgroundColor = "red"
-
-console.log(item.firstChild)
-item.firstChild.style.backgroundColor = "red"
-
-console.log(item.firstElementChild)
-item.firstElementChild.style.backgroundColor = "blue"
-item.firstElementChild.textContent = "Hello 1"
-
-console.log(item.lastElementChild)
-item.lastElementChild.textContent = "Hello 2"
-
-console.log(item.lastChild)
-
-console.log(item.nextSibling)
-console.log(item.nextElementSibling)
+// Form submit event
+form.addEventListener('submit', addItem);
+// Delete event
+itemList.addEventListener('click', removeItem);
 
 
 
 
+// Add item
+function addItem(e){
+  e.preventDefault();
 
-var newDiv = document.createElement("div")
-newDiv.className = "hello"
-newDiv.id = "hello2"
-newDiv.setAttribute("title", "Hello Div")
-var newDivText = document.createTextNode("Hello World")
-newDiv.appendChild(newDivText)
+  // Get input value
+  var newItem = document.getElementById('item').value;
 
-var container = document.querySelector(".list-group")
-var h1 = document.querySelector(".list-group-item")
-console.log(newDiv)
-newDiv.style.fontSize = "30px"
-container.insertBefore(newDiv, h1)
+  // Create new li element
+  var li = document.createElement('li');
+  // Add class
+  li.className = 'list-group-item';
+  // Add text node with input value
+  li.appendChild(document.createTextNode(newItem));
 
+  // Create del button element
+  var deleteBtn = document.createElement('button');
 
-var newDiv = document.createElement("div")
-newDiv.className = "hello"
-newDiv.id = "hello2"
-newDiv.setAttribute("title", "Hello Div")
-var newDivText = document.createTextNode("Hello World")
-newDiv.appendChild(newDivText)
+  // Add classes to del button
+  deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
 
-var container = document.querySelector(".container")
-var h1 = document.querySelector(".titlee")
-console.log(newDiv)
-newDiv.style.fontSize = "30px"
-container.insertBefore(newDiv, h1)
+  // Append text node
+  deleteBtn.appendChild(document.createTextNode('X'));
 
+  // Append button to li
+  li.appendChild(deleteBtn);
 
+  // Append li to list
+  itemList.appendChild(li);
+}
 
-
-
+// Remove item
+function removeItem(e){
+  if(e.target.classList.contains('delete')){
+    if(confirm('Are You Sure?')){
+      var li = e.target.parentElement;
+      itemList.removeChild(li);
+    }
+  }
+}
 
